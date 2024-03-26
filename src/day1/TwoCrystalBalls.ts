@@ -11,7 +11,7 @@ export default function two_crystal_balls(breaks: boolean[]): number {
   let i = jmpAmount
   for (; i < breaks.length; i += jmpAmount) {
     if (breaks[i]) { // find where the crystall ball is going to break
-      breaks;
+      break; // ends the loop and go to the next instruction
     }
   }
 

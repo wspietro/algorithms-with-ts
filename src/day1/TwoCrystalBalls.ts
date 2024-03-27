@@ -1,3 +1,7 @@
+// Given two crystal balls that will break if dropped from high enough
+// distance, determine the exact spot in which it will break in the most
+// optimized way.
+
 // we want to jump by sqrt(n)
 // sqrt(n) is the only way we can change this from nonlinear running
 // using sqrt(n) means that in the second ball, the worst case scenario is to walk sqrt(n)

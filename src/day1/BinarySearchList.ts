@@ -15,9 +15,9 @@ export default function bs_list(haystack: number[], needle: number): boolean {
     if (v === needle) {
       return true
     } else if (v > needle) {
-      hi = m
+      hi = m // include
     } else {
-      lo = m + 1
+      lo = m + 1 // exclude
     }
   } while (lo < hi);
 

@@ -46,19 +46,19 @@ export default class ArrayList<T> {
 
 
   remove(item: T): T | undefined {
-    let itemIndex = undefined;
-    for (let i = 0; i < this.length; i++) {
+    let i = -1; // no items inserted
+    for (; i < this.length; i++) {
       if (this.data[i] === item) {
-        itemIndex = i
+
         break
       }
     }
 
-    if (itemIndex === undefined) { // 0 é falsy
+    if (i === -1) { // 0 é falsy
       return undefined
     }
 
-    return this.removeAt(itemIndex)
+    return this.removeAt(i)
   }
 
   get(idx: number): T | undefined {

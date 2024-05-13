@@ -14,20 +14,19 @@ export default class SinglyLinkedList<T> {
   }
 
   prepend(item: T): void {
+    this.length++;
     if (this.head === null) {
       this.head = { data: item, next: null }
-    } else {
-      const node: Node<T> = { data: item, next: this.head }
-      this.head = node
+      return;
     }
-    this.length++;
+    const node: Node<T> = { data: item, next: this.head }
+    this.head = node
   }
-
 
   insertAt(item: T, idx: number): void {
     // idx = posição
     if (idx > this.length || idx < 0) { // validando idx
-      return;
+      throw new Error('Oh no')
     } else if (idx === 0) {
       // já faz o controle de lenght
       this.prepend(item)
@@ -40,12 +39,9 @@ export default class SinglyLinkedList<T> {
 
     let curr = this.head
     // queremos parar no nó anterior a posição de inserção. idx = 2, paramos no 1
-    for (let i = 0; i < idx - 1; i++) {
-      // TS não identifica validações feitas anteriormente. 
-      if (!curr) {
-        break
-      }
-
+    // se pararmos na posição da inserção, quebraremos a lista pois nao temos acesso ao prev
+    // precisamos parar antes pois não temos o valor de prev
+    for (let i = 0; curr && i < idx - 1; i++) {
       curr = curr.next
     }
 
